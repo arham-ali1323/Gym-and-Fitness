@@ -143,28 +143,52 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
           >
             <div className="glass-morphism rounded-2xl p-8 h-full min-h-[400px] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-600/20" />
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width=%2260%22%20height=%2260%22%20viewBox=%220%200%2060%2060%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg%20fill=%22%23ffffff%22%20fill-opacity=%220.05%22%3E%3Cpath%20d=%22M0%2060L60%200H30L0%2030M60%2060V30L30%2060%22/%3E%3C/g%3E%3C/svg%3E')]" />
-              
-              <div className="relative z-10 flex items-center justify-center h-full">
-                <div className="text-center">
-                  <motion.div
-                    className="w-24 h-24 rounded-full bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center mx-auto mb-6"
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      rotate: [0, 5, -5, 0],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <Award className="w-12 h-12 text-white" />
-                  </motion.div>
-                  <h4 className="text-2xl font-bold text-white mb-2">Award Winning</h4>
-                  <p className="text-gray-300">Best Gym in the City 2023</p>
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width=%2260%22%20height=%2260%22%20viewBox=%220%200%2060%2060%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg%20fill=%22%23ffffff%22%20fill-opacity=%220.05%22%3E%3Cpath%20d=%22M0%2060L60%200H30L0%2030M60%2060V30L30%2060%22/%3E%3C/g%3E%3C/svg%3E')]">
+                {/* Certificate Design */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 max-w-md bg-gradient-to-br from-primary-500/10 to-purple-600/10 border-2 border-white/20 rounded-lg p-6 shadow-2xl backdrop-blur-sm">
+                  <div className="border-2 border-white/20 p-6 h-full flex flex-col items-center justify-center text-center">
+                    {/* Decorative Elements */}
+                    <div className="absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 border-white/30"></div>
+                    <div className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-white/30"></div>
+                    <div className="absolute bottom-4 left-4 w-12 h-12 border-b-2 border-l-2 border-white/30"></div>
+                    <div className="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-white/30"></div>
+                    
+                    {/* Certificate Content */}
+                    <div className="mb-6">
+                      <div className="text-4xl font-bold text-white mb-2">CERTIFICATE</div>
+                      <div className="text-sm text-white/60 mb-1">OF ACHIEVEMENT</div>
+                      <div className="w-24 h-1 bg-gradient-to-r from-primary-400 to-purple-500 mx-auto my-4"></div>
+                    </div>
+                    
+                    <div className="text-white/80 mb-6">
+                      <p className="text-sm mb-1">This certifies that</p>
+                      <h3 className="text-2xl font-bold text-white mb-4">POWERFIT GYM</h3>
+                      <p className="text-sm mb-4">has been recognized for excellence in</p>
+                      <p className="text-xl font-semibold text-primary-300 mb-6">FITNESS & WELLNESS</p>
+                      <p className="text-xs text-white/60">Awarded on: January 1, 2024</p>
+                    </div>
+                    
+                    <div className="mt-4 pt-4 border-t border-white/10 w-3/4">
+                      <div className="flex justify-between items-center">
+                        <div className="text-center">
+                          <div className="w-16 h-0.5 bg-white/30 mx-auto mb-1"></div>
+                          <span className="text-xs text-white/50">Director</span>
+                        </div>
+                        <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center">
+                          <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                          </svg>
+                        </div>
+                        <div className="text-center">
+                          <div className="w-16 h-0.5 bg-white/30 mx-auto mb-1"></div>
+                          <span className="text-xs text-white/50">Date</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+              
             </div>
           </motion.div>
         </div>

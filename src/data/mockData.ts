@@ -14,8 +14,17 @@ export interface Trainer {
   bio: string;
   experience: string;
   specialties: string[];
-  image: string;
-  rating: number;
+  image?: string; // Made optional since we're using imageUrl
+  rating: number | string;
+  clients?: number;
+  certifications?: string[];
+  availability?: string;
+  contact?: {
+    email: string;
+    phone: string;
+  };
+  imageUrl?: string;
+  imageAlt?: string;
 }
 
 export interface MembershipPlan {
@@ -137,43 +146,147 @@ export const services: Service[] = [
 export const trainers: Trainer[] = [
   {
     id: '1',
-    name: 'Sarah Johnson',
-    role: 'Head Trainer',
-    bio: 'Certified personal trainer with 10+ years of experience in strength training and nutrition.',
-    experience: '10+ years',
-    specialties: ['Strength Training', 'Nutrition', 'Weight Loss'],
-    image: '/api/placeholder/400/400',
-    rating: 4.9
+    name: 'Alex Johnson',
+    role: 'Head Fitness Coach',
+    rating: '4.9',
+    experience: '10+ Years Experience',
+    bio: 'Specialized in strength training and functional fitness with a passion for helping clients achieve their peak physical condition. Alex has trained professional athletes and helped over 250 clients transform their lives through personalized fitness programs.',
+    specialties: ['Strength Training', 'Weight Loss', 'Muscle Building', 'Functional Fitness'],
+    clients: 320,
+    certifications: ['NASM Certified', 'CrossFit Level 3', 'Precision Nutrition', 'FMS Level 1'],
+    availability: 'Mon, Wed, Fri',
+    contact: {
+      email: 'alex@example.com',
+      phone: '(555) 123-4567'
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Professional fitness trainer Alex Johnson demonstrating proper form'
   },
   {
     id: '2',
     name: 'Mike Chen',
-    role: 'Fitness Coach',
-    bio: 'Specialized in HIIT and functional training with a background in sports science.',
-    experience: '8 years',
-    specialties: ['HIIT', 'Functional Training', 'Sports Performance'],
-    image: '/api/placeholder/400/400',
-    rating: 4.8
+    role: 'HIIT & Functional Training Specialist',
+    rating: '4.8',
+    experience: '8+ Years Experience',
+    bio: 'Former collegiate athlete with a degree in Exercise Science, Mike specializes in high-intensity interval training and functional movement patterns. His dynamic training style keeps clients motivated and seeing consistent results.',
+    specialties: ['HIIT', 'Functional Training', 'Sports Performance', 'Metabolic Conditioning'],
+    clients: 275,
+    certifications: ['ACE Certified', 'NSCA-CPT', 'TRX Instructor', 'Kettlebell Specialist'],
+    availability: 'Mon, Tue, Thu, Fri',
+    contact: {
+      email: 'mike@example.com',
+      phone: '(555) 987-6543'
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Mike Chen leading a high-energy HIIT class'
   },
   {
     id: '3',
-    name: 'Emma Williams',
-    role: 'Yoga Instructor',
-    bio: 'Registered yoga teacher focusing on mindfulness and flexibility training.',
-    experience: '6 years',
-    specialties: ['Yoga', 'Pilates', 'Meditation'],
-    image: '/api/placeholder/400/400',
-    rating: 5.0
+    name: 'Sarah Williams',
+    role: 'Yoga & Mobility Expert',
+    rating: '4.9',
+    experience: '12+ Years Experience',
+    bio: 'With over a decade of experience in yoga therapy and movement, Sarah helps clients improve flexibility, mobility, and mental well-being. Her holistic approach combines traditional yoga with modern movement science.',
+    specialties: ['Vinyasa Yoga', 'Mobility Training', 'Injury Prevention', 'Breathwork'],
+    clients: 420,
+    certifications: ['RYT 500', 'Yoga Therapy', 'Fascial Stretch Therapy', 'Pilates Mat'],
+    availability: 'Tue, Thu, Sat, Sun',
+    contact: {
+      email: 'sarah@example.com',
+      phone: '(555) 234-5678'
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Yoga instructor Sarah Williams demonstrating a pose'
   },
   {
     id: '4',
     name: 'James Rodriguez',
-    role: 'Strength Coach',
-    bio: 'Former athlete turned strength coach, specializing in muscle building and conditioning.',
-    experience: '12 years',
-    specialties: ['Bodybuilding', 'Powerlifting', 'Conditioning'],
-    image: '/api/placeholder/400/400',
-    rating: 4.7
+    role: 'Strength & Conditioning Coach',
+    rating: '4.8',
+    experience: '15+ Years Experience',
+    bio: 'Former professional athlete with extensive experience in strength and conditioning. James specializes in helping clients build functional strength, improve athletic performance, and prevent injuries through proper movement mechanics.',
+    specialties: ['Strength Training', 'Powerlifting', 'Sports Conditioning', 'Mobility'],
+    clients: 380,
+    certifications: ['CSCS', 'USA Weightlifting', 'FMS Level 2', 'Precision Nutrition'],
+    availability: 'Mon-Fri',
+    contact: {
+      email: 'james@example.com',
+      phone: '(555) 345-6789'
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'James Rodriguez demonstrating proper lifting form'
+  },
+  {
+    id: '5',
+    name: 'Emily Chen',
+    role: 'Prenatal & Postnatal Specialist',
+    rating: '4.9',
+    experience: '7+ Years Experience',
+    bio: 'Specializing in prenatal and postnatal fitness, Emily helps women stay strong and healthy throughout pregnancy and beyond. Her gentle yet effective approach focuses on core recovery and functional movement.',
+    specialties: ['Prenatal Fitness', 'Postnatal Recovery', 'Pelvic Floor Health', 'Functional Training'],
+    clients: 195,
+    certifications: ['Pre/Postnatal Certified', 'Pilates Instructor', 'Diastasis Recti Specialist'],
+    availability: 'Mon, Wed, Fri, Sat',
+    contact: {
+      email: 'emily@example.com',
+      phone: '(555) 456-7890'
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Emily Chen leading a prenatal fitness class'
+  },
+  {
+    id: '6',
+    name: 'Marcus Johnson',
+    role: 'Senior Trainer & Nutrition Coach',
+    rating: '5.0',
+    experience: '18+ Years Experience',
+    bio: 'With nearly two decades in the fitness industry, Marcus combines his expertise in strength training with evidence-based nutrition coaching to help clients achieve sustainable results and optimal health.',
+    specialties: ['Body Recomposition', 'Nutrition Coaching', 'Strength Training', 'Hormone Optimization'],
+    clients: 500,
+    certifications: ['NASM-CPT', 'Precision Nutrition L2', 'IFBB Pro', 'Functional Medicine Coach'],
+    availability: 'By Appointment Only',
+    contact: {
+      email: 'marcus@example.com',
+      phone: '(555) 567-8901'
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Marcus Johnson demonstrating proper form with kettlebells'
+  },
+   {
+    id: '7',
+    name: 'Sarah Williams',
+    role: 'Yoga & Mobility Expert',
+    rating: '4.9',
+    experience: '12+ Years Experience',
+    bio: 'With over a decade of experience in yoga therapy and movement, Sarah helps clients improve flexibility, mobility, and mental well-being. Her holistic approach combines traditional yoga with modern movement science.',
+    specialties: ['Vinyasa Yoga', 'Mobility Training', 'Injury Prevention', 'Breathwork'],
+    clients: 420,
+    certifications: ['RYT 500', 'Yoga Therapy', 'Fascial Stretch Therapy', 'Pilates Mat'],
+    availability: 'Tue, Thu, Sat, Sun',
+    contact: {
+      email: 'sarah@example.com',
+      phone: '(555) 234-5678'
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Yoga instructor Sarah Williams demonstrating a pose'
+  },
+    {
+    id: '8',
+    name: 'Alex Johnson',
+    role: 'Head Fitness Coach',
+    rating: '4.9',
+    experience: '10+ Years Experience',
+    bio: 'Specialized in strength training and functional fitness with a passion for helping clients achieve their peak physical condition. Alex has trained professional athletes and helped over 250 clients transform their lives through personalized fitness programs.',
+    specialties: ['Strength Training', 'Weight Loss', 'Muscle Building', 'Functional Fitness'],
+    clients: 320,
+    certifications: ['NASM Certified', 'CrossFit Level 3', 'Precision Nutrition', 'FMS Level 1'],
+    availability: 'Mon, Wed, Fri',
+    contact: {
+      email: 'alex@example.com',
+      phone: '(555) 123-4567'
+    },
+    imageUrl: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Professional fitness trainer Alex Johnson demonstrating proper form'
   }
 ];
 
@@ -265,45 +378,73 @@ export const testimonials: Testimonial[] = [
 export const galleryItems: GalleryItem[] = [
   {
     id: '1',
-    title: 'Modern Equipment',
+    title: 'Modern Cardio Zone',
     category: 'Facility',
-    image: '/api/placeholder/600/400',
-    description: 'State-of-the-art fitness equipment for all workout types'
+    image: 'https://images.unsplash.com/photo-1534438327276-14e9300c3bb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    description: 'State-of-the-art cardio equipment with personal screens and interactive training programs'
   },
   {
     id: '2',
-    title: 'Group Yoga Session',
+    title: 'Sunset Yoga Flow',
     category: 'Classes',
-    image: '/api/placeholder/600/400',
-    description: 'Relaxing yoga classes in our spacious studio'
+    image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    description: 'Evening yoga sessions with breathtaking sunset views from our rooftop studio'
   },
   {
     id: '3',
-    title: 'Strength Training Area',
+    title: 'Premium Strength Training',
     category: 'Facility',
-    image: '/api/placeholder/600/400',
-    description: 'Fully equipped strength training zone'
+    image: 'https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    description: 'Fully equipped free weights and resistance training area with premium equipment'
   },
   {
     id: '4',
-    title: 'HIIT Class',
+    title: 'High-Energy HIIT Class',
     category: 'Classes',
-    image: '/api/placeholder/600/400',
-    description: 'High-intensity interval training sessions'
+    image: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    description: 'High-intensity interval training that pushes your limits and burns maximum calories'
   },
   {
     id: '5',
-    title: 'Cardio Zone',
+    title: 'Olympic Lifting Platform',
     category: 'Facility',
-    image: '/api/placeholder/600/400',
-    description: 'Modern cardio machines with entertainment systems'
+    image: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    description: 'Dedicated Olympic lifting platforms with professional-grade bumper plates'
   },
   {
     id: '6',
-    title: 'Personal Training',
+    title: 'Personal Training Session',
     category: 'Training',
-    image: '/api/placeholder/600/400',
-    description: 'One-on-one training with expert coaches'
+    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    description: 'One-on-one training with our certified personal trainers for personalized results'
+  },
+  {
+    id: '7',
+    title: 'Indoor Cycling Studio',
+    category: 'Classes',
+    image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    description: 'Immersive cycling experience with synchronized lighting and music'
+  },
+  {
+    id: '8',
+    title: 'Functional Training Zone',
+    category: 'Facility',
+    image: 'https://images.unsplash.com/photo-1571902943201-8b4a8a1a8b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    description: 'Versatile space for functional training with TRX, battle ropes, and more'
+  },
+  {
+    id: '9',
+    title: 'Recovery & Stretching Area',
+    category: 'Facility',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    description: 'Dedicated recovery zone with foam rollers, massage guns, and stretching areas'
+  },
+  {
+    id: '10',
+    title: 'Cardio Zone',
+    category: 'Facility',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e9300c3bb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+    description: 'Modern cardio machines with entertainment systems'
   }
 ];
 

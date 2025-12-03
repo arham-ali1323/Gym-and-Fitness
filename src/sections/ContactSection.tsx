@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, MessageCircle, User, Mail as MailIcon } from 'lucide-react';
 import { socialLinks } from '../data/mockData';
 import { cn } from '../utils/cn';
+
+// Use React.lazy for code splitting
+const InteractiveMap = lazy(() => import('../components/InteractiveMap'));
 
 interface ContactSectionProps {
   className?: string;
 }
 
 const ContactSection: React.FC<ContactSectionProps> = ({ className }) => {
+  const [isClient, setIsClient] = useState(false);
+  
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -330,22 +339,31 @@ const ContactSection: React.FC<ContactSectionProps> = ({ className }) => {
           </motion.div>
         </div>
 
-        {/* Map Placeholder */}
+        {/* Interactive Map */}
         <motion.div
-          className="mt-16"
+          className="mt-16 h-[500px] w-full"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
         >
-          <div className="glass-morphism rounded-2xl overflow-hidden h-96">
-            <div className="w-full h-full bg-gradient-to-br from-primary-500/20 to-purple-600/20 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-white/50 mx-auto mb-4" />
-                <p className="text-white/70 text-lg">Interactive Map</p>
-                <p className="text-white/50">Find us easily at our location</p>
+          <div className="glass-morphism rounded-2xl overflow-hidden h-[500px] w-full">
+            <Suspense fallback={
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="text-center">
+                  <MapPin className="w-16 h-16 text-white/50 mx-auto mb-4" />
+                  <p className="text-white/70 text-lg">Loading map...</p>
+                </div>
               </div>
-            </div>
+            }>
+              {isClient && (
+                <InteractiveMap 
+                  center={[51.505, -0.09]} // Example coordinates (London)
+                  zoom={15}
+                  markerText="PowerFit Gym"
+                />
+              )}
+            </Suspense>
           </div>
         </motion.div>
       </div>

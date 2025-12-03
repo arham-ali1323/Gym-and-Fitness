@@ -34,22 +34,22 @@ const TrainerCard: React.FC<TrainerCardProps> = ({ trainer, index, className }) 
       >
         {/* Image Section */}
         <div className="relative h-64 overflow-hidden">
-          {/* Placeholder Image with Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-purple-600" />
-          
-          {/* Profile Placeholder */}
+          {/* Trainer Image with Gradient Overlay */}
           <motion.div
-            className="absolute inset-0 flex items-center justify-center"
+            className="absolute inset-0"
             animate={{
               scale: isHovered ? 1.1 : 1,
             }}
             transition={{ duration: 0.5 }}
           >
-            <div className="w-32 h-32 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-              <span className="text-5xl font-bold text-white">
-                {trainer.name.split(' ').map(n => n[0]).join('')}
-              </span>
-            </div>
+            <img
+              src={trainer.imageUrl || trainer.image}
+              alt={trainer.imageAlt || `${trainer.name}, ${trainer.role}`}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
           </motion.div>
 
           {/* Rating Badge */}
@@ -66,7 +66,7 @@ const TrainerCard: React.FC<TrainerCardProps> = ({ trainer, index, className }) 
 
           {/* Experience Badge */}
           <motion.div
-            className="absolute bottom-4 left-4 px-3 py-2 rounded-full bg-accent-500/20 backdrop-blur-sm"
+            className="absolute bottom-4 left-4 px-3 py-2 rounded-full bg-accent-500/80 backdrop-blur-sm z-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -86,7 +86,7 @@ const TrainerCard: React.FC<TrainerCardProps> = ({ trainer, index, className }) 
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold text-white mb-1">{trainer.name}</h3>
-            <p className="text-primary-400 font-medium">{trainer.role}</p>
+            <p className="text-accent-300 font-medium">{trainer.role}</p>
           </motion.div>
 
           {/* Bio */}

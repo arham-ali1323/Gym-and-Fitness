@@ -7,7 +7,6 @@ import MeteorEffect from './components/MeteorEffect';
 import FeatureCards from './components/FeatureCards';
 import CardStack from './components/CardStack';
 import Footer from './components/Footer';
-
 // Sections
 import HeroSection from './sections/HeroSection';
 import AboutSection from './sections/AboutSection';

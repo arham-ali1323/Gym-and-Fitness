@@ -16,7 +16,7 @@ const GalleryItemComponent: React.FC<GalleryItemProps> = ({ item, index, onImage
 
   return (
     <motion.div
-      className={cn("group cursor-pointer overflow-hidden rounded-2xl", className)}
+      className={cn("group cursor-pointer overflow-hidden rounded-2xl relative", className)}
       initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -26,16 +26,21 @@ const GalleryItemComponent: React.FC<GalleryItemProps> = ({ item, index, onImage
       whileHover={{ scale: 1.05 }}
       onClick={() => onImageClick(item)}
     >
-      {/* Image Placeholder */}
-      <div className="relative aspect-video">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-purple-600" />
+      {/* Main Image */}
+      <div className="relative aspect-video w-full h-full">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
         
-        {/* Overlay Pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width=%2240%22%20height=%2240%22%20viewBox=%220%200%2040%2040%22%20xmlns=%22http://www.w3.org/2000/svg%22%20fill=%22%23ffffff%22%20fill-opacity=%220.1%22%3E%3Cpath%20d=%22M0%2040L40%200H20L0%2020M40%2040V20L20%2040%22/%3E%3C/svg%3E')]" />
+        {/* Dark overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300" />
         
         {/* Category Badge */}
         <motion.div
-          className="absolute top-4 left-4 px-3 py-1 rounded-full glass-morphism"
+          className="absolute top-4 left-4 px-3 py-1 rounded-full glass-morphism z-10"
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
