@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 
 // Components
-import FloatingDockNavbar from './components/FloatingDockNavbar';
+import FloatingDockNavbar from './components/Navbar';
 import MeteorEffect from './components/MeteorEffect';
 import FeatureCards from './components/FeatureCards';
 import CardStack from './components/CardStack';
